@@ -33,7 +33,7 @@ export default function Navbar() {
       left: 0,
       right: 0,
       zIndex: 1000,
-      background: scrolled ? 'rgba(255, 255, 255, 0.98)' : 'transparent',
+      background: scrolled ? 'rgba(255, 255, 255, 0.98)' : 'var(--primary-dark)',
       borderBottom: scrolled ? '1px solid var(--border-light)' : 'none',
       backdropFilter: scrolled ? 'blur(10px)' : 'none',
       transition: 'var(--transition)',
@@ -64,13 +64,13 @@ export default function Navbar() {
           <div style={{
             fontSize: '0.9rem',
             fontWeight: 600,
-            color: 'var(--primary)',
+            color: scrolled ? 'var(--primary)' : '#FFFFFF',
             lineHeight: 1,
             textTransform: 'uppercase',
             letterSpacing: 1,
             display: scrolled ? 'none' : 'block'
           }}>
-            Advanced <span style={{ display: 'block', fontSize: '0.6rem', color: 'var(--secondary)', fontWeight: 700 }}>Orthopedic Care</span>
+            Advanced <span style={{ display: 'block', fontSize: '0.6rem', color: scrolled ? 'var(--secondary)' : 'var(--accent)', fontWeight: 700 }}>Orthopedic Care</span>
           </div>
         </Link>
 
@@ -87,14 +87,20 @@ export default function Navbar() {
               style={{
                 fontWeight: 600,
                 fontSize: '0.9rem',
-                color: pathname === l.to ? 'var(--primary)' : 'var(--text-muted)',
+                color: scrolled 
+                  ? (pathname === l.to ? 'var(--primary)' : 'var(--text-muted)')
+                  : '#FFFFFF',
                 textDecoration: 'none',
                 transition: 'var(--transition)',
                 paddingBottom: 4,
-                borderBottom: pathname === l.to ? '2.5px solid var(--primary)' : '2.5px solid transparent'
+                borderBottom: pathname === l.to 
+                  ? `2.5px solid ${scrolled ? 'var(--primary)' : '#FFFFFF'}`
+                  : '2.5px solid transparent'
               }}
-              onMouseEnter={e => e.target.style.color = 'var(--primary)'}
-              onMouseLeave={e => e.target.style.color = pathname === l.to ? 'var(--primary)' : 'var(--text-muted)'}
+              onMouseEnter={e => e.target.style.color = scrolled ? 'var(--primary)' : 'var(--accent)'}
+              onMouseLeave={e => e.target.style.color = scrolled 
+                ? (pathname === l.to ? 'var(--primary)' : 'var(--text-muted)')
+                : '#FFFFFF'}
             >
               {l.label}
             </Link>
