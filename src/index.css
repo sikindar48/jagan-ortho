@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Sophisticated Medical Palette */
+  --bg-cream: #FDFBF7;
+  --bg-white: #FFFFFF;
+  
+  --primary: #5D4037; /* Warm Mahogany Brown */
+  --primary-dark: #3E2723;
+  --secondary: #8D6E63; /* Muted Bronze */
+  --accent: #D7CCC8; /* Soft Cream-Brown */
+  
+  --text-main: #2C2C2C;
+  --text-muted: #616161;
+  
+  --border-light: #EEEEEE;
+  --border-medium: #D7CCC8;
+  
+  /* Standardized Transitions */
+  --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --shadow-sm: 0 4px 12px rgba(93, 64, 55, 0.05);
+  --shadow-md: 0 12px 24px rgba(93, 64, 55, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Keeping sharp corners as requested before, but making them surgical/precise */
+  border-radius: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--primary-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+/* Sharp Card - Refined */
+.card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-medium);
+  padding: 40px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Professional Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1.5px solid var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+  text-transform: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--bg-white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+}
+
+/* Entry Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typography Helpers */
+.section-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  margin-bottom: 24px;
+  color: var(--primary-dark);
+}
+
+.section-sub {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+  .section-title { font-size: 2.2rem; }
+  .container { padding: 0 24px; }
+  .section { padding: 60px 0; }
+}

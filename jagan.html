@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagan Hospital | Knee Replacement Specialist | Nandyal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0a74b9; /* Medical Blue */
+            --secondary: #12b48b; /* Hospital Teal */
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #f59e0b; /* Amber for emergency/highlights */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--dark);
+            color: white;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+        }
+
+        .top-bar i { color: var(--secondary); margin-right: 5px; }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--secondary);
+            letter-spacing: 1px;
+        }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: var(--dark); font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary); }
+
+        .btn-consult {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-consult:hover { background: var(--secondary); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 116, 185, 0.8), rgba(18, 180, 139, 0.8)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+        }
+
+        .hero h2 { font-size: 3rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 30px; }
+
+        /* Stats/Info Cards */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: -50px;
+            padding: 0 5%;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-card i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
+        .stat-card h4 { margin-bottom: 10px; color: var(--primary); }
+
+        /* Section Styling */
+        section { padding: 80px 5%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); }
+        .section-title div { width: 80px; height: 4px; background: var(--secondary); margin: 10px auto; }
+
+        /* About Section */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-img img { width: 100%; border-radius: 15px; box-shadow: 15px 15px 0 var(--secondary); }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-box {
+            background: white;
+            padding: 40px;
+            border-bottom: 5px solid var(--primary);
+            transition: 0.3s;
+            border-radius: 8px;
+        }
+
+        .service-box:hover { transform: translateY(-10px); background: var(--primary); color: white; }
+        .service-box i { font-size: 2rem; margin-bottom: 20px; color: var(--secondary); }
+        .service-box:hover i { color: white; }
+
+        /* Schemes Section */
+        .schemes { background: var(--primary); color: white; text-align: center; }
+        .scheme-icons { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap;}
+        .scheme-tag { background: rgba(255,255,255,0.2); padding: 15px 30px; border-radius: 50px; font-weight: 700; border: 1px solid white; }
+
+        /* Contact Section */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .contact-info div { display: flex; align-items: center; margin-bottom: 20px; }
+        .contact-info i { width: 40px; height: 40px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; }
+
+        footer { background: var(--dark); color: white; padding: 50px 5% 20px; text-align: center; }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .hero h2 { font-size: 2rem; }
+            nav ul, .top-bar { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div>
+            <i class="fa-solid fa-location-dot"></i> Padmavathi Nagar, Nandyal
+            <i class="fa-solid fa-clock" style="margin-left: 20px;"></i> 24/7 Emergency
+        </div>
+        <div>
+            <i class="fa-brands fa-whatsapp"></i> +91 96524 88788
+        </div>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <h1>Jagan Hospital</h1>
+            <span>KNEE REPLACEMENT SPECIALIST</span>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Dr. Jagan</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="tel:9652488788" class="btn-consult">Call Now</a>
+    </nav>
+
+    <header class="hero" id="home">
+        <div>
+            <h2>Expert Orthopedic Care in Nandyal</h2>
+            <p>Led by <strong>Dr. K. Jagan Mohan Reddy (MS Ortho)</strong>, providing world-class knee replacement and trauma care services with compassion and hygiene.</p>
+            <a href="https://wa.me/919652488788" class="btn-consult" style="background: #25d366;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Booking</a>
+        </div>
+    </header>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <i class="fa-solid fa-hospital-user"></i>
+            <h4>4.4/5 Stars</h4>
+            <p>Rated by Google & Justdial patients</p>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-kit-medical"></i>
+            <h4>24/7 Service</h4>
+            <p>Round the clock emergency care</p>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <h4>Affordable</h4>
+            <p>High standards at reasonable fees</p>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" alt="Doctor Consultation">
+            </div>
+            <div class="about-content">
+                <div class="section-title" style="text-align: left;">
+                    <h2>Meet Dr. K. Jagan Mohan Reddy</h2>
+                    <div style="margin: 10px 0;"></div>
+                </div>
+                <p><strong>MBBS, MS Ortho</strong><br>Dr. Jagan Mohan Reddy is a renowned specialist in Knee Replacement Surgery and Trauma care. With years of experience in joint health, he has established Jagan Hospital as the premier facility in Nandyal for complex orthopedic issues.</p>
+                <br>
+                <p>Our facility is noted for maintaining <strong>impeccable hygiene standards</strong> and a patient-friendly environment, ensuring your journey to recovery is comfortable and safe.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background: #f1f5f9;">
+        <div class="section-title">
+            <h2>Our Specialized Services</h2>
+            <div></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-box">
+                <i class="fa-solid fa-bone"></i>
+                <h3>Knee Replacement</h3>
+                <p>Advanced surgical solutions for chronic knee pain and joint restoration.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-truck-medical"></i>
+                <h3>Trauma Care</h3>
+                <p>24/7 emergency services for accidents, fractures, and joint dislocations.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-stethoscope"></i>
+                <h3>Orthopedic Consultation</h3>
+                <p>Expert diagnosis for back pain, posture guidance, and lifestyle management.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-person-walking-rehab"></i>
+                <h3>Post-Op Care</h3>
+                <p>Comprehensive follow-up care to ensure complete mobility after surgery.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="schemes">
+        <h2>Accepted Insurance & Schemes</h2>
+        <p>Providing accessible healthcare through various government and private partnerships.</p>
+        <div class="scheme-icons">
+            <div class="scheme-tag">AAROGYASREE</div>
+            <div class="scheme-tag">EHS (Govt Employees)</div>
+            <div class="scheme-tag">PRIVATE INSURANCE</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <div></div>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>Door No: 25/684-16, Beside Tejaswini Hotel, Padmavathi Nagar, Nandyal – 518501.</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>+91 96524 88788<br>08514-244415</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>contact@jaganhospital.com</p>
+                </div>
+                <div style="background: var(--light); padding: 20px; border-radius: 10px; border-left: 5px solid var(--accent);">
+                    <p><strong>Emergency:</strong> Open 24 Hours<br>Located in Rythu Bazar area, Nandyal.</p>
+                </div>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.234676191753!2d78.4735!3d15.48!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDI4JzQ4LjAiTiA3OMKwMjgnMjQuNiJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="350" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Jagan Hospital Nandyal. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Joint Health is Our Priority | Specialist Dr. K. Jagan Mohan Reddy</p>
+    </footer>
+
+</body>
+</html>
